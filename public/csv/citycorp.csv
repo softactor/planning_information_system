@@ -1,0 +1,12 @@
+citycorp_id,div_id,citycorp_name,citycorp_name_bd,citycorp_x,citycorp_y,isdelete,user_id
+1,10,Comilla City Corporation (COCC),কুমিল্লা সিটি কর্পোরেশন,,,0,1
+2,20,Chittagong City Corporation (CCC),চট্টগ্রাম সিটি কর্পোরেশন,,,0,1
+3,30,Dhaka North City Corporation (DNCC),ঢাকা উত্তর সিটি কর্পোরেশন,,,0,1
+4,30,Dhaka South City Corporation (DSCC),ঢাকা দক্ষিণ সিটি কর্পোরেশন,,,0,1
+5,30,Gazipur City Corporation (GCC),গাজীপুর সিটি কর্পোরেশন,,,0,1
+6,40,Narayanganj City Corporation (NCC),নারায়ণগঞ্জ সিটি কর্পোরেশন,,,0,1
+7,40,Barisal City Corporation (BCC),বরিশাল সিটি কর্পোরেশন,,,0,1
+8,50,Khulna City Corporation (KCC),খুলনা সিটি কর্পোরেশন,,,0,1
+9,60,Rajshahi City Corporation (RCC),রাজশাহী সিটি কর্পোরেশন,,,0,1
+10,70,Rangpur City Corporation (RACC),রংপুর সিটি কর্পোরেশন,,,0,1
+11,80,Sylhet City Corporation (SCC),সিলেট সিটি কর্পোরেশন,,,0,1

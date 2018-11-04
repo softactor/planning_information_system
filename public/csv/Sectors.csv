@@ -1,0 +1,6 @@
+sector_id,sector_name,sector_name_bn,isdelete,user_id
+1,Power,,0,1
+2,Oil Gas and Natural Resources,,0,1
+3,Transport,,0,1
+4,Communication,,0,1
+5,Physical Planning Water Supply and Housing,,0,1

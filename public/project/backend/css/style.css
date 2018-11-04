@@ -1,0 +1,159 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 13, 2018, 10:41:38 AM
+    Author     : Tanveer Qureshee
+*/
+
+.add_edit_delete_link{
+    padding: 1%;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    margin: 0 1px;
+    background-color: lightgray;
+    text-decoration: none;
+}
+
+.add_link{
+    color: lightgreen;
+
+}
+
+
+.no_data_message_style{
+    text-align: center;
+    color: pink;
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+.required:after {
+    font-weight: bold;
+    color: #e32;
+    content: ' *';
+    display:inline;
+}
+
+
+.json_alert_message{
+    display: none;
+}
+
+.alert-error{
+    padding: 1%;
+}
+
+input[type="checkbox"]{
+    cursor: pointer;
+}
+
+.wizard.clearfix > .content.clearfix{
+    min-height: 500px;
+    overflow-y: auto;
+}
+
+.success_entry_next a{
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+.custom_button_left_align{
+    padding-left: 0px;
+}
+ol.breadcrumb{
+    display: none !important;
+}
+.search_area input[type="text"]{
+    width: 155px;
+    height: 33px;
+    padding: 10px;
+}
+.required_star{
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+}
+span.required_star::after{
+    content: " *";
+}
+.project_link_information{
+    margin-right: 10%;
+    font-weight: bold;
+    width: 25%;
+}
+.project_link_information ul{
+    list-style: none;
+}
+.project_link_information ul li{
+    margin: 2% 1%;
+}
+
+.project_link_information ul li a span{
+}
+.calculator-inline{
+	color:	black !important;
+}
+#project_quality_review label{
+    width: 25% !important;
+}
+#project_quality_review .btn-default{
+    margin-left: 29% !important;
+}
+#project_quality_review input[type="text"]{
+    width: 238px;
+}
+#project_quality_review input[type="text"]#search_project{
+    width: 506px;
+}
+#viewProjectProfile table tr td{
+    background-color: lightgrey;
+}
+
+#viewProjectProfile h4{
+    font-weight: bold;
+} 
+.progress_static_type_des{
+    margin-top: 10%;
+    padding: 3px;
+    background-color: #eee;
+    text-align: center;
+    width: 100%;
+}
+.pdf_viwer_section{
+    width: 90%;
+}
+.pdf_viwer_section button{
+    margin: 3% 0;
+}
+.value_alignment{
+    padding-top: .5%;
+}
+.admin-dashboard-main-top-title{
+    display: block;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+    transition: width .3s ease-in-out;
+    display: block;
+    float: left;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+    width: 530px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    padding: .5% 2%;
+}
+.admin-dashboard-main-top-title span{
+    font-size: 15px;
+}
+.inner a{
+    color: white;
+}
+
+.constituency_style{
+    position: relative;
+    left: 30%;
+}

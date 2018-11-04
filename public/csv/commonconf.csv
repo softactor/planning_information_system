@@ -1,0 +1,47 @@
+commonconf_Id,commonconf_name,commonconf_type,isdelete,userid
+1,DPP,1,0,1
+2,RDDP,1,0,1
+3,TAPP,1,0,1
+4,RTAPP,1,0,1
+5,N,2,0,1
+6,C,2,0,1
+7,R,2,0,1
+8,PEC,3,0,1
+9,ECNEC,3,0,1
+10,USA,4,0,1
+11,Germany,4,0,1
+12,Japan,4,0,1
+13,Canada,4,0,1
+14,UK,4,0,1
+15,The Netherlands,4,0,1
+16,Denmark,4,0,1
+17,Norway,4,0,1
+18,Switzerland,4,0,1
+19,South Korea,4,0,1
+20,Australia,4,0,1
+21,Switzerland,4,0,1
+22,UN,4,0,1
+23,GIZ,5,0,1
+24,DANIA,5,0,1
+25,USAID,5,0,1
+26,DFID,5,0,1
+27,JICA,5,0,1
+28,World Bank,5,0,1
+29,ADB,5,0,1
+30,Asia,4,0,1
+31,UNDP,5,0,1
+32,AUS-AID,5,0,1
+33,CIDA,5,0,1
+34,SIDA,5,0,1
+35,Grant,6,0,1
+36,Loan,6,0,1
+37,Equity,6,0,1
+38,Other,6,0,1
+39,Dev Project Proposal,7,0,1
+40,Tech Assist Project Proposal,7,0,1
+41,Rev Dev Project Proposal,7,0,1
+42,Rev Tech Assist Project Proposal,7,0,1
+43,Maps,7,0,1
+44,Survey,7,0,1
+45,Needs Assesment,7,0,1
+46,Feasibility Study,7,0,1

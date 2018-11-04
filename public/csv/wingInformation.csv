@@ -1,0 +1,7 @@
+wing_id,pcdivisions_id,wing_name,wing_shortname,isdelete,user_id
+1,4,Physical Planning Water Supply and Housing 1,PPH1,0,1
+2,4,Physical Planning Water Supply and Housing 2,PPH2,0,1
+3,4,Road Transport,RoT,0,1
+4,4,Railway Transport,RaT,0,1
+5,4,Communication,COM,0,1
+6,4,Transport Coordination,TRaC,0,1

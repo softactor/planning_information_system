@@ -1,0 +1,94 @@
+agency_id,agency_name,agency_name_bn,agency_shortname,isdelete,user_id
+1,no agency involved,কোন সংস্থা জড়িত নয়,None,0,1
+2,Bangladesh Power Development Board,বাংলাদেশ বিদ্যুৎ উন্নয়ন বোর্ড,BPDB,0,1
+3,Bangladesh Rural Electrification Board,বাংলাদেশ পল্লী বিদ্যুতায়ন বোর্ড,BREB,0,1
+4,Power Grid Company of Bangladesh Limited,পাওয়ার গ্রিড কোম্পানি অব বাংলাদেশ লিঃ,PGCB,0,1
+5,North West Power Generation Company Ltd,নর্থ ওয়েস্ট পাওয়ার জেনারেশন কোম্পানি লিমিটেড,NWPGCL,0,1
+6,Ashugonj Power Station Compant Ltd,আশুগঞ্জ পাওয়ার স্টেশন কোম্পানী লি.,APSCL,0,1
+7,Rural Power Company LTD,পল্লী বিদ্যুৎ কোম্পানি লিমিটেড,RPCL,0,1
+8,Electricity Generation Company of Bangladesh Limited,ইলেক্ট্রিসিটি জেনারেশন কোম্পানি অব বাংলাদেশ লিঃ,EGCB,0,1
+9,Dhaka Power Distribution Company Limited,ঢাকা বিদ্যুৎ বিতরণ কোম্পানি লিমিটেড,DPDC,0,1
+10,West Zone Power Distribution Company Limited,ওয়েষ্ট জোন পাওয়ার ডিস্ট্রিবিউশন কোম্পানি লি.,WZPDCL,0,1
+11,Dhaka Electric Supply Company Limited,ঢাকা ইলেক্ট্রিক সাপ্লাই কোম্পানি লিমিটেড,DESCO,0,1
+12,Bangladesh Oil Gas and Mineral Corporation,পেট্রোবাংলা,PetroBangla,0,1
+13,Bangladesh Petroleum Institute,বাংলাদেশ পেট্রোলিয়াম ইন্সটিটিউট,BPI,0,1
+14,Directorate of Explosive,বিস্ফোরক অধিদপ্তর,DOE,0,1
+15,Geological Survey of Bangladesh,বাংলাদেশ ভূতাত্ত্বিক জরিপ অধিদপ্তর,GSB,0,1
+16,Hydrocarbon Unit,বাংলাদেশ হাইড্রোকার্বন ইউনিট,HCU,0,1
+17,Bangladesh Petroleum Corporation,বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন,BPC,0,1
+18,Chittagong Hill Tracts Development Board,পার্বত্য চট্টগ্রাম উন্নয়ন বোর্ড,CHTDB,0,1
+19,Road Transport & Highway Division,সড়ক পরিবহন ও মহাসড়ক বিভাগ,RTHD,0,1
+20,Roads and Highways Department,সড়ক ও জনপথ অধিদপ্তর,RHD,0,1
+21,Bangladesh Road Transport Authority,বাংলাদেশ সড়ক পরিবহন কর্তৃপক্ষ,BRTA,0,1
+22,Bangladesh Bridge Authority,বাংলাদেশ সেতু কর্তৃপক্ষ,BBA,0,1
+23,Bridge Division,সেতু বিভাগ,BD,0,1
+24,Bangladesh Railway,বাংলাদেশ রেলওয়ে,BR,0,1
+25,Bangladesh Land Port Authority,বাংলাদেশ স্থল বন্দর কর্তৃপক্ষ,BLPA,0,1
+26,Mongla Port Authority,মংলা বন্দর কর্তৃপক্ষ,MPA,0,1
+27,Bangladesh Inland Water Transport Authority,বাংলাদেশ অভ্যন্তরীণ নৌ-পরিবহন কর্তৃপক্ষ,BIWTA,0,1
+28,Bangladesh Inland Water Transport Corporation,বাংলাদেশ অভ্যন্তরীণ নৌ-পরিবহন কর্পোরেশন,BIWTC,0,1
+29,Department of Shipping,শিপিং অধিদপ্তর,DOS,0,1
+30,National River Conservation Commission,জাতীয় নদী রক্ষা কমিশন,NRCC,0,1
+31,National Maritime Institute,ন্যাশনাল মেরিটাইম ইনস্টিটিউট,NMI,0,1
+32,Marine Academy,বাংলাদেশ মেরিন একাডেমী,MA,0,1
+33,Payra Port Authority,পায়রা বন্দর কর্তৃপক্ষ,PPA,0,1
+34,Ministry of Shipping,নৌ-পরিবহন মন্ত্রণালয়,MOS,0,1
+35,Civil Aviation Authority,বেসামরিক বিমান চলাচল কর্তৃপক্ষ,CAA,0,1
+36,Bangladesh Tourism Corporation,বাংলাদেশ পর্যটন করপোরেশন,BTC,0,1
+37,Bangladesh Tourism Board,বাংলাদেশ ট্যুরিজম বোর্ড,BTB,0,1
+38,Bangladesh Post Office,বাংলাদেশ ডাক বিভাগ,BPO,0,1
+39,Bangladesh Telecommunication,বাংলাদেশ টেলিকমিউনিকেশন,BT,0,1
+40,Bangladesh Telecommunication Company Limited,বাংলাদেশ টেলিকমিউনিকেশনস কোম্পানি লিমিটেড,BTCL,0,1
+41,Teletalk Bangladesh Limited,টেলিটক বাংলাদেশ লিমিটেড,TBL,0,1
+42,Bangladesh Telecommunication Regulatory Commission,বাংলাদেশ টেলিকমিউনিকেশনস রেগুলেটারি কমিশন,BTRC,0,1
+43,AHQ E-in Cs Branch Ministry of Defense,সেনা সদর দপ্তর ই ইন সি ব্রাঞ্চ,AHQECB,0,1
+44,Inter Services Selection Board Ministry of Defense,ইন্টার সার্ভিসেস সিলেকশন বোর্ড,ISSB,0,1
+45,Department of Shipping Ministry of Defense,নৌ-পরিবহন অধিদপ্তর,DOS,0,1
+46,Bangladesh Space Research and Remote Sensing Organization Ministry of Defense,বাংলাদেশ মহাকাশ গবেষণা ও দূর অনুধাবন সংস্থা,SPARRSO,0,1
+47,Bangladesh Meteorological Department Ministry of Defense,বাংলাদেশ আবহাওয়া অধিদপ্তর,BMD,0,1
+48,Survey of Bangladesh Ministry of Defense,বাংলাদেশ জরিপ অধিদপ্তর,SOB,0,1
+49,Public Works Department,গণপূর্ত অধিদপ্তর,PWD,0,1
+50,Rajdhani Unnayan Katripakkhaya,রাজধানী উন্নয়ন কর্তৃপক্ষ (রাজউক),RAJUK,0,1
+51,Chittagong Development Authority,চট্টগ্রাম উন্নয়ন কর্তৃপক্ষ,CDA,0,1
+52,Rajshahi Development Authority,রাজশাহী উন্নয়ন কর্তৃপক্ষ,RDA,0,1
+53,Khulna Development Authority,খুলনা উন্নয়ন কর্তৃপক্ষ,KDA,0,1
+54,National Housing Authority,জাতীয় গৃহায়ন কর্তৃপক্ষ,NHA,0,1
+55,Urban Development Directorate,নগর উন্নয়ন অধিদপ্তর,UDD,0,1
+56,Housing and Building Research Institute,হাউজিং এন্ড বিল্ডিং রিসার্চ ইনষ্টিটিউট,HBRI,0,1
+57,Institution of Diploma Engineers Bangladesh,ইন্সটিটিউশন অব ডিপ্লোমা ইঞ্জিনিয়ার্স,IDEB,0,1
+58,Directorate of Architechture,স্থাপত্য অধিদপ্তর,DOA,0,1
+59,Law and Justice Division,আইন ও বিচার বিভাগ,LJD,0,1
+60,Supreme Court,সুপ্রীম কোর্ট,SC,0,1
+61,Directorate of Registration,নিবন্ধন পরিদপ্তর,DOR,0,1
+62,Apan Division,আপন বিভাগ,AD,0,1
+63,Army Headquarters,সেনা সদর দপ্তর,AH,0,1
+64,Bangladesh Police,বাংলাদেশ পুলিশ,BP,0,1
+65,Border Guard Bangladesh,বর্ডার গার্ড বাংলাদেশ,BGB,0,1
+66,Bangladesh Ansar,বাংলাদেশ আনসার,BA,0,1
+67,Coast Guard Department,বাংলাদেশ কোস্ট গার্ড,CGD,0,1
+68,National Telecommunication Monitoring Centre,ন্যাশনাল টেলিকমিউনিকেশন মনিটরিং সেন্টার,NTMC,0,1
+69,Police Headquaretrs,পুলিশ হেডকোয়াটার্স,PH,0,1
+70,Prison Department,কারা অধিদপ্তর,PD,0,1
+71,Department of  Fire Service and Civil Defense,বাংলাদেশ ফায়ার সার্ভিস ও সিভিল ডিফেন্স অধিদপ্তর,DFSCD,0,1
+72,Department of Immigration and Passport,বহিরাগমন ও পাসপোর্ট অধিদপ্তর,DIP,0,1
+73,Department of Narotics Control,মাদকদ্রব্য নিয়ন্ত্রণ অধিদপ্তর,DNC,0,1
+74,Local Government Engineering Department,স্থানীয় সরকার প্রকৌশল অধিদপ্তর,LGED,0,1
+75,Dhaka North City Corporation,ঢাকা উত্তর সিটি কর্পোরেশন,DNCC,0,1
+76,Dhaka South City Corporation,ঢাকা দক্ষিণ সিটি কর্পোরেশন,DSCC,0,1
+77,Chittagong City Corporation,চট্টগ্রাম সিটি কর্পোরেশন,CCC,0,1
+78,Rajshahi City Corporation,রাজশাহী সিটি কর্পোরেশন,RCC,0,1
+79,Khulna City Corporation,খুলনা সিটি কর্পোরেশন,KCC,0,1
+80,Barishal City Corporation,বরিশাল সিটি কর্পোরেশন,BCC,0,1
+81,Sylhet City Corporation,সিলেট সিটি কর্পোরেশন,SCC,0,1
+82,Narayanganj City Corporation,নারায়ণগঞ্জ সিটি কর্পোরেশন,NCC,0,1
+83,Comilla City Corporation,কুমিল্লা সিটি কর্পোরেশন,COCC,0,1
+84,Gazipur City Corporation,গাজীপুর সিটি কর্পোরেশন,GCC,0,1
+85,Rangpur City Corporation,রংপুর সিটি কর্পোরেশন,RACC,0,1
+86,Dhaka Wasa,ঢাকা ওয়াসা,DWASA,0,1
+87,Rajshahi Wasa,রাজশাহী ওয়াসা,RWASA,0,1
+88,Chittagong Wasa,চট্টগ্রাম ওয়াসা,CWASA,0,1
+89,Khulna Wasa,খুলনা ওয়াসা,KWASA,0,1
+90,Department of Public Health Engineering,জনস্বাস্থ্য প্রকৌশল অধিদপ্তর,DPHE,0,1
+91,Prime Ministers Office,প্রধানমন্ত্রীর কার্যালয়,PMO,0,1
+92,Rural Development Academy Bogra,পল্লী উন্নয়ন একাডেমি (আরডিএ) বগুড়া,RDA (Bogra),0,1
+93,National Revenue Board,জাতীয় রাজস্ব বোর্ড,NRB,0,1

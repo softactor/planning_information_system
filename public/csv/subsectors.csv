@@ -1,0 +1,10 @@
+subsector_id,sector_ID,subsector_name,subsector_name_bn,isdelete,user_id
+1,1,Generation,,0,1
+2,2,Oil Gas and Natural Resources,,0,1
+4,4,Communication,,0,1
+5,5,Physical Planning Water Supply and Housing,,0,1
+6,5,Distribution,,0,1
+7,3,Road Transport,,0,1
+8,3,Railway Transport,,0,1
+9,3,Shipping,,0,1
+10,3,Civil Aviation,,0,1

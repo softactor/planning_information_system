@@ -1,0 +1,27 @@
+ministry_ID,ministry_name,ministry_name_bn,ministry_Shortname,isdelete,user_id
+1,Ministry of Power Energy and Mineral Resources,বিদ্যুৎ জ্বালানি ও খনিজ সম্পদ মন্ত্রণালয়,MPEMR,0,1
+21,Power Division,বিদ্যুৎ বিভাগ,PD,0,1
+22,Energy and Mineral Resources Division,জ্বালানি ও খনিজ সম্পদ বিভাগ,EMRD,0,1
+2,Ministry of Chittagong Hill Tracts Affairs,পার্বত্য চট্টগ্রাম বিষয়ক মন্ত্রণালয়,MOCHTA,0,1
+3,Ministry of Road Transport & Bridges ,সড়ক পরিবহন ও সেতু মন্ত্রণালয়,RTHD,0,1
+23,Road Transport & Highway Road Division,সড়ক পরিবহন ও মহাসড়ক বিভাগ,RTHD,0,1
+24,Bridge Division,সেতু বিভাগ,BD,0,1
+4,Ministry of Railway,রেলপথ মন্ত্রণালয়,MOR,0,1
+5,Ministry of Shipping ,নৌ-পরিবহন মন্ত্রণালয়,MOS,0,1
+6,Ministry of Civil Aviation & Tourism,বেসামরিক বিমান পরিবহন ও পর্যটন মন্ত্রণালয়,MOCAT,0,1
+7,Posts and Telecommunication Division,ডাক ও টেলিযোগাযোগ বিভাগ,PTD,0,1
+8,Ministry of Defense,প্রতিরক্ষা মন্ত্রণালয়,MOD,0,1
+9,Ministry of Housing and Public Works,গৃহায়ণ ও গণপূর্ত মন্ত্রণালয়,MOHPW,0,1
+10,Ministry of Law Justice and Parliament Affairs,আইন বিচার ও সংসদ বিষয়ক মন্ত্রণালয়,MINLAW,0,1
+11,Ministry of Foreign Affairs,পররাষ্ট্র মন্ত্রণালয়,MOFA,0,1
+12,Ministry of Public Administration,জনপ্রশাসন মন্ত্রণালয়,MOPA,0,1
+13,Presidents Office,রাষ্ট্রপতির কার্যালয়,BB,0,1
+14,Ministry of Home Affairs,স্বরাষ্ট্র মন্ত্রণালয়,MHA,0,1
+25,Public Security Division,জননিরাপত্তা বিভাগ,MHAPSD,0,1
+26,Security Service Division,সুরক্ষা সেবা বিভাগ,SSD,0,1
+15,Ministry of Liberation War Affairs,মুক্তিযুদ্ধ বিষয়ক মন্ত্রণালয়,MOLWA,0,1
+16,Ministry of Land,ভূমি মন্ত্রণালয়,MINLAND,0,1
+17,Anti-Corruption Commission,দুর্নীতি দমন কমিশন,ACC,0,1
+18,Local Government Division,স্থানীয় সরকার বিভাগ,LGD,0,1
+19,Rural Development and Co-operatives Division,পল্লী উন্নয়ন ও সমবায় বিভাগ,RDCD,0,1
+20,Internal Resources Division,অভ্যন্তরীণ সম্পদ বিভাগ,IRD,0,1
