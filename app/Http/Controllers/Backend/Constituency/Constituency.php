@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Backend\Constituency;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Commonconf\CommonconfModel;
+use App\Model\Constituency\ConstituencyModel;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use View;
 
 class Constituency extends Controller{
     
-    public $list_title      =   "Common configuration information";
-    public $create_url      =   "admin/commonconf/create";
-    public $edit_url        =   "admin/commonconf/edit";
+    public $list_title      =   "Constituency";
+    public $create_url      =   "admin/constituency/create";
+    public $edit_url        =   "admin/constituency/edit";
     public $list_url        =   "admin/dashbord";
     public $active_menu     =   "setup";
     
@@ -24,13 +24,13 @@ class Constituency extends Controller{
     public function index(){
         $list_title     =   $this->list_title;
         $create_url     =   $this->create_url;
-        $list_url      =   $this->list_url;
+        $list_url       =   $this->list_url;
         $edit_url       =   $this->edit_url;
         $active_menu    =   $this->active_menu;
         $page           =   "List";
         // get all table data:
-        $list_data  = CommonconfModel::orderBy('id', 'DESC')->get();
-        return view('backend.commonconf.list', compact('list_title','create_url','edit_url','list_url','page','list_data','active_menu'));
+        $list_data  = ConstituencyModel::orderBy('id', 'DESC')->get();
+        return view('backend.constituency.list', compact('list_title','create_url','edit_url','list_url','page','list_data','active_menu'));
     }
     
     public function create(){
@@ -38,21 +38,21 @@ class Constituency extends Controller{
         $list_url      =   $this->list_url;
         $active_menu    =   $this->active_menu;
         $page           =   "Create";
-        return view('backend.commonconf.create', compact('list_title','list_url','page','active_menu'));
+        return view('backend.constituency.create', compact('list_title','list_url','page','active_menu'));
     }
     
     // config store method:
     public function store(Request $request) {
         //Define Rules
         $rules = [
-            'commonconf_name' => 'required',
-            'commonconf_type' => 'required',
+            'const_id'  => 'required',
+            'name'      => 'required',
         ];
 
         // Create a new validator instance
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            return redirect('admin/commonconf/create')
+            return redirect('admin/constituency/create')
                             ->withErrors($validator)
                             ->withInput()
                             ->with('error', 'Failed to save data');
@@ -61,16 +61,16 @@ class Constituency extends Controller{
          *check duplicate entry
          * ---------------------------------------------------------
          */
-        $checkParam['table'] = "commonconfs";
+        $checkParam['table'] = "constituency";
         $checkWhereParam = [
-                ['commonconf_name', '=', $request->commonconf_name],
-                ['commonconf_type', '=', $request->commonconf_type],
+                ['const_id', '=', $request->const_id],
+                ['name', '=', $request->name],
         ];
         $checkParam['where']    = $checkWhereParam;
         $duplicateCheck         = check_duplicate_data($checkParam); //check_duplicate_data is a helper method:
         // check is it duplicate or not
         if ($duplicateCheck) {
-            return redirect('admin/commonconf/create')
+            return redirect('admin/constituency/create')
                             ->withInput()
                             ->with('error', 'Failed to save data. Duplicate Entry found.');
         }// end of duplicate checking:
@@ -79,17 +79,17 @@ class Constituency extends Controller{
          *Insert area
          * ---------------------------------------------------------
          */
-        $response   =   CommonconfModel::create([
-            'commonconf_name'   =>  $request->commonconf_name,
-            'commonconf_type'   =>  $request->commonconf_type,
-            'is_deleted'        =>  0,
-            'user_id'           =>  Auth::user()->id,
+        $response   =   ConstituencyModel::create([
+            'const_id'   =>  $request->const_id,
+            'name'       =>  $request->name,
+            'latitude'   =>  $request->latitude,
+            'longitude'  =>  $request->longitude
         ]);
         if($response){
-            return redirect('admin/commonconf')
+            return redirect('admin/constituency')
                             ->with('success', 'Data have been saved successfully.');
         }else{
-            return redirect('admin/commonconf/create')
+            return redirect('admin/constituency/create')
                             ->withInput()
                             ->with('error', 'Failed to save data.');
         }
@@ -97,45 +97,45 @@ class Constituency extends Controller{
     
     public function edit_view($id){
         // get all table data:
-        $edit_data  = CommonconfModel::where('id', $id)->first();
+        $edit_data  = ConstituencyModel::where('id', $id)->first();
         $list_title     =   $this->list_title;
         $list_url      =   $this->list_url;
         $active_menu    =   $this->active_menu;
         $page           =   "Create";
-        return view('backend.commonconf.edit', compact('list_title','list_url','page','edit_data','active_menu'));
+        return view('backend.constituency.edit', compact('list_title','list_url','page','edit_data','active_menu'));
     }
     
     // config store method:
     public function update(Request $request) {
         //Define Rules
         $rules = [
-            'commonconf_name' => 'required',
-            'commonconf_type' => 'required',
+            'const_id'  => 'required',
+            'name'      => 'required',
         ];
 
         // Create a new validator instance
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            return redirect('admin/commonconf/create')
+            return redirect('admin/constituency/edit/'.$request->edit_id)
                             ->withErrors($validator)
                             ->withInput()
-                            ->with('error', 'Failed to save data');
+                            ->with('error', 'Failed to Update data');
         }
         /* ----------------------------------------------------------
          * check duplicate entry
          * ---------------------------------------------------------
          */
-        $checkParam['table'] = "commonconfs";
+        $checkParam['table'] = "constituency";
         $checkWhereParam = [
-                ['commonconf_name', '=', $request->commonconf_name],
-                ['commonconf_type', '=', $request->commonconf_type],
-                ['id', '!=', $request->edit_id],
+                ['const_id',    '=', $request->const_id],
+                ['name',        '=', $request->name],
+                ['id',          '!=', $request->edit_id],
         ];
         $checkParam['where']    = $checkWhereParam;
         $duplicateCheck         = check_duplicate_data($checkParam); //check_duplicate_data is a helper method:
         // check is it duplicate or not
         if ($duplicateCheck) {
-            return redirect('admin/commonconf/edit/' . $request->edit_id)
+            return redirect('admin/constituency/edit/' . $request->edit_id)
                             ->withInput()
                             ->with('error', 'Failed to save data. Duplicate Entry found.');
         }// end of duplicate checking:
@@ -144,13 +144,14 @@ class Constituency extends Controller{
          * Update area
          * ---------------------------------------------------------
          */
-        $commonconf = CommonconfModel::find($request->edit_id);
+        $commonconf = ConstituencyModel::find($request->edit_id);
         $commonconf->update([
-            'commonconf_name'   => trim($request->get('commonconf_name')),
-            'commonconf_type'   => $request->get('commonconf_type'),
-            'user_id'           => Auth::user()->id,
+            'const_id'      => trim($request->get('const_id')),
+            'latitude'      =>  $request->latitude,
+            'longitude'     =>  $request->longitude,
+            'name'          => trim($request->get('name'))
         ]);
-        return redirect('admin/commonconf')
+        return redirect('admin/constituency')
                         ->with('success', 'Data have saved updated.');
     }
 
@@ -177,15 +178,12 @@ class Constituency extends Controller{
     } // end of method
     
     public function csv_upload() {
-        $file = public_path('csv/commonconf.csv');
-
-        $insertData = $this->csvToArray($file);
+        $file           = public_path('csv/const_areas.csv');
+        $insertData     = $this->csvToArray($file);
         foreach($insertData as $data) {
-            CommonconfModel::create([
-                'commonconf_name'                 => $data[1],
-                'commonconf_type'                 => $data[2],
-                'is_deleted'                    => $data[3],
-                'user_id'                       => $data[4]
+            ConstituencyModel::create([
+                'const_id'  => $data[0],
+                'name'      => $data[1]
             ]);
         }// end of foreach
         exit;
@@ -225,7 +223,7 @@ class Constituency extends Controller{
         
         return $csvData;
     }
-    public function searchCommonconf(Request $request) {
+    public function searchConstituency(Request $request) {
         $list_title = $this->list_title;
         $create_url = $this->create_url;
         $list_url = $this->list_url;
@@ -233,18 +231,18 @@ class Constituency extends Controller{
         $active_menu    =   $this->active_menu;
         $page = "List";
         // get all table data:
-        $query  = CommonconfModel::orderBy('id', 'DESC');
+        $query  = ConstituencyModel::orderBy('id', 'DESC');
 
         if (isset($request->all) && !empty($request->all)) {
             $list_data = $query->get();
         } else {
 
-            if (isset($request->commonconf_name) && !empty($request->commonconf_name)) {
-                $query->where('commonconf_name', 'like', '%' . $request->commonconf_name . '%');
+            if (isset($request->const_id) && !empty($request->const_id)) {
+                $query->where('const_id', 'like', '%' . $request->const_id . '%');
             }
 
-            if (isset($request->commonconf_type) && !empty($request->commonconf_type)) {
-                $query->where('commonconf_type', '=', $request->commonconf_type);
+            if (isset($request->name) && !empty($request->name)) {
+                $query->where('name', 'like', '%' . $request->name . '%');
             }
             
             $list_data = $query->get();
@@ -256,7 +254,7 @@ class Constituency extends Controller{
                 'data' => ''
             ];
         } else {
-            $search_data = View::make('backend.search.commonconf_search_list', compact('list_data', 'list_title', 'create_url', 'edit_url', 'list_url', 'page', 'list_data', 'active_menu'));
+            $search_data = View::make('backend.search.constituency_search_list', compact('list_data', 'list_title', 'create_url', 'edit_url', 'list_url', 'page', 'list_data', 'active_menu'));
             $feedback_data = [
                 'status' => 'success',
                 'message' => 'Data Found',

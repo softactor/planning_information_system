@@ -174,7 +174,13 @@ Route::group(['namespace'   =>  'Backend', 'prefix'   =>  'admin', 'middleware' 
      * =========================================================================
      */
     Route::get('constituency',            'Constituency\Constituency@index');
-    
+    Route::get('constituency/csv_upload', 'Constituency\Constituency@csv_upload');
+    // edit view
+    Route::get('constituency/edit/{id}',     'Constituency\Constituency@edit_view');
+    Route::post('constituency/update',     'Constituency\Constituency@update');
+    Route::post('constituency/store',     'Constituency\Constituency@store');
+    Route::get('constituency/create',     'Constituency\Constituency@create');
+    Route::post('constituency/searchConstituency',     'Constituency\Constituency@searchConstituency');
     /*
      * =========================================================================
      * Division route

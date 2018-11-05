@@ -27,35 +27,43 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form class="form-horizontal" action="{{url('admin/commonconf/store')}}" method="post">
+                        <form class="form-horizontal" action="{{url('admin/constituency/store')}}" method="post">
                              <!--to protect csrf-->
                              {{csrf_field()}}
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="confi">Common configuration<span class="required_star">*</span></label>                                
+                                <label class="control-label col-sm-3" for="const_id">Constituency<span class="required_star">*</span></label>                                
                                 <div class="col-sm-8">
-                                    @if ($errors->has('commonconf_name'))
-                                    <div class="alert-error">{{ $errors->first('commonconf_name') }}</div>
+                                    @if ($errors->has('const_id'))
+                                    <div class="alert-error">{{ $errors->first('const_id') }}</div>
                                 @endif
-                                    <input type="text" class="form-control" id="commonconf_name" name="commonconf_name" value="{{ old('commonconf_name') }}">
+                                    <input type="text" class="form-control" id="const_id" name="const_id" value="{{ old('const_id') }}">
                                 </div>    
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="typ">Type<span class="required_star">*</span></label>                                
+                                <label class="control-label col-sm-3" for="name">Name<span class="required_star">*</span></label>                                
                                 <div class="col-sm-8">
-                                        @if ($errors->has('commonconf_type'))
-                                            <div class="alert-error">{{ $errors->first('commonconf_type') }}</div>
-                                        @endif
-                                    <select class="form-control" id="commonconf_type" name="commonconf_type">
-                                        <option value="">Select Type</option>
-                                        @php
-                                            $configType =   get_table_data_by_table('configuration_type');
-                                            foreach($configType as $data){
-                                        @endphp
-                                        <option value="{{$data->id}}" <?php if(old('commonconf_type') && old('commonconf_type')==$data->id){ echo "selected"; } ?>>{{$data->name}}</option>
-                                        @php
-                                            }
-                                        @endphp
-                                    </select>
+                                    @if ($errors->has('name'))
+                                    <div class="alert-error">{{ $errors->first('name') }}</div>
+                                @endif
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                                </div>    
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label col-sm-3" for="lati">X</label>
+                                <div class="col-sm-8">
+                                    @if ($errors->has('latitude'))
+                                    <div class="alert-error">{{ $errors->first('latitude') }}</div>
+                                @endif
+                                    <input type="text" class="form-control" id="latitude" name="latitude" value="{{ old('latitude') }}">
+                                </div>    
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="longitude">Y</label>
+                                <div class="col-sm-8">
+                                    @if ($errors->has('longitude'))
+                                    <div class="alert-error">{{ $errors->first('longitude') }}</div>
+                                @endif
+                                    <input type="text" class="form-control" id="longitude" name="longitude" value="{{ old('longitude') }}">
                                 </div>    
                             </div>
                             <div class="form-group">

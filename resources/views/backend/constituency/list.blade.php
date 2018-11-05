@@ -25,7 +25,7 @@
                     <div class="box-header">
                         @include('backend/pertial/operation_message')
                         <div class="pull-left add_edit_delete_link">
-                            @include('backend/search/commonconf_search')
+                            @include('backend/search/constituency_search')
                         </div>
                         <div class="pull-right add_edit_delete_link">
                             <a href="{{ url($list_url) }}">
@@ -45,8 +45,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Constituency</th>
                                     <th>Name</th>
-                                    <th>Type</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -58,11 +58,11 @@
                                 @foreach ($list_data as $data)
                                 <tr id="data_entry_id_{{$data->id}}">
                                     <td class="text-center">{{ $slNo++}}</td>
-                                    <td>{{ $data->commonconf_name }}</td>
-                                    <td>{{ get_data_name_by_id('configuration_type',$data->commonconf_type)->name }}</td>
+                                    <td>{{ $data->const_id }}</td>
+                                    <td>{{ $data->name }}</td>
                                     <td>
                                         <a href="{{ url($edit_url.'/'.$data->id) }}" class="btn btn-xs btn-info">Edit</a>
-                                        <button type="button" class="btn btn-xs btn-info" onclick="common_delete({{$data->id}}, 'commonconfs');">Delete</button>
+                                        <button type="button" class="btn btn-xs btn-info" onclick="common_delete({{$data->id}}, 'constituency');">Delete</button>
                                     </td>
 
                                 </tr>
@@ -73,14 +73,6 @@
                                 </tr>
                                 @endif
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     <!-- /.box-body -->

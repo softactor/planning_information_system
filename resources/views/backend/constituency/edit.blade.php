@@ -28,42 +28,50 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="box-body">
-                        <form class="form-horizontal" action="{{url('admin/commonconf/update')}}" method="post">
+                        <form class="form-horizontal" action="{{url('admin/constituency/update')}}" method="post">
                              <!--to protect csrf-->
                              {{csrf_field()}}
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="confi">Common configuration<span class="required_star">*</span></label>                                
+                                <label class="control-label col-sm-3" for="confi">Constituency<span class="required_star">*</span></label>                                
                                 <div class="col-sm-8">
-                                    @if ($errors->has('commonconf_name'))
-                                    <div class="alert-error">{{ $errors->first('commonconf_name') }}</div>
+                                    @if ($errors->has('const_id'))
+                                    <div class="alert-error">{{ $errors->first('const_id') }}</div>
                                 @endif
-                                    <input type="text" class="form-control" id="commonconf_name" name="commonconf_name" value="{{ old('commonconf_name',$edit_data->commonconf_name) }}">
+                                    <input type="text" class="form-control" id="const_id" name="const_id" value="{{ old('const_id',$edit_data->const_id) }}">
                                 </div>    
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="typ">Type<span class="required_star">*</span></label>                                
+                                <label class="control-label col-sm-3" for="name">Name<span class="required_star">*</span></label>                                
                                 <div class="col-sm-8">
-                                        @if ($errors->has('commonconf_type'))
-                                            <div class="alert-error">{{ $errors->first('commonconf_type') }}</div>
-                                        @endif
-                                    <select class="form-control" id="commonconf_type" name="commonconf_type">
-                                        <option value="">Select Type</option>
-                                        @php
-                                            $configType =   get_table_data_by_table('configuration_type');
-                                            foreach($configType as $data){
-                                        @endphp
-                                        <option value="{{$data->id}}" <?php if(isset($edit_data->commonconf_type) && $edit_data->commonconf_type==$data->id){ echo "selected"; } ?>>{{$data->name}}</option>
-                                        @php
-                                            }
-                                        @endphp
-                                    </select>
+                                    @if ($errors->has('name'))
+                                    <div class="alert-error">{{ $errors->first('name') }}</div>
+                                @endif
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name',$edit_data->name) }}">
+                                </div>    
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label col-sm-3" for="lati">X</label>
+                                <div class="col-sm-8">
+                                    @if ($errors->has('latitude'))
+                                    <div class="alert-error">{{ $errors->first('latitude') }}</div>
+                                @endif
+                                    <input type="text" class="form-control" id="latitude" name="latitude" value="{{ old('latitude',$edit_data->latitude) }}">
+                                </div>    
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="longitude">Y</label>
+                                <div class="col-sm-8">
+                                    @if ($errors->has('longitude'))
+                                    <div class="alert-error">{{ $errors->first('longitude') }}</div>
+                                @endif
+                                    <input type="text" class="form-control" id="longitude" name="longitude" value="{{ old('longitude',$edit_data->longitude) }}">
                                 </div>    
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-8">
                                     <input type="hidden" name="edit_id" value="{{$edit_data->id}}">
                                     <input name="submit" type="submit" value="Update" class="btn btn-success">
-                                    <a href="{{ url('admin/commonconf')}}" class="btn btn-info">Cancel</a>
+                                    <a href="{{ url('admin/constituency')}}" class="btn btn-info">Cancel</a>
                                     <a href="{{ url($list_url)}}" class="btn btn-info">Menu</a>
                                 </div>
                             </div>
