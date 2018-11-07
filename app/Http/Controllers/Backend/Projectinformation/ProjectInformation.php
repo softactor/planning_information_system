@@ -657,15 +657,19 @@ class ProjectInformation extends Controller
             $coordinatesParam['where'] = [
                 'id' => $request->upz_id
             ];
-
-            //Define Rules
-            $rules = [
-                'div_id' => 'required',
-                'district_id' => 'required',
-                'upz_id' => 'required',
-                'gisobject_id' => 'required'
-            ];
-
+            if (isset($request->csv_location) && !empty($request->csv_location)) {
+                $rules = [
+                    'gisobject_id' => 'required'
+                ];
+            } else {
+                //Define Rules
+                $rules = [
+                    'div_id' => 'required',
+                    'district_id' => 'required',
+                    'upz_id' => 'required',
+                    'gisobject_id' => 'required'
+                ];
+            }
             /* ----------------------------------------------------------
              * check duplicate entry
              * ---------------------------------------------------------
@@ -697,11 +701,17 @@ class ProjectInformation extends Controller
                 ['id', '!=', $request->pla_update_id],
             ];
             $checkParam['where'] = $checkWhereParam;
-            //Define Rules
-            $rules = [
-                'gisobject_id' => 'required',
-                'city_corp_id' => 'required'
-            ];
+            if (isset($request->csv_location) && !empty($request->csv_location)) {
+                $rules = [
+                    'gisobject_id' => 'required'
+                ];
+            } else {
+                //Define Rules
+                $rules = [
+                    'gisobject_id' => 'required',
+                    'city_corp_id' => 'required'
+                ];
+            }
         }
 
 

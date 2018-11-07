@@ -128,14 +128,27 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="ctycor">
-                                    <input type="radio" name="location_type" id="location_type_city" value="2" onchange="disableOtherLocationInput(2);">City Corporation
+                                    <input type="radio" name="location_type" id="location_type_city" value="2" onchange="disableOtherLocationInput(2);">Category
                                 <span class="required_star">*</span></label>
                                 
+                                <div class="col-sm-3">
+                                    @if ($errors->has('cat_id'))
+                                        <div class="alert-error">{{ $errors->first('city_corp_id') }}</div>
+                                    @endif
+                                    <select class="form-control" id="cat_id" name="cat_id" onchange="loadCityCropByCat(this.value);">
+                                        <option value="">Select</option>
+                                        <option value="1">City corporation</option>
+                                        <option value="2">Municipality</option>
+                                    </select>
+                                </div>   
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="ctycor"></label>                                
                                 <div class="col-sm-3">
                                     @if ($errors->has('city_corp_id'))
                                         <div class="alert-error">{{ $errors->first('city_corp_id') }}</div>
                                     @endif
-                                    <select disabled="disabled" class="form-control" id="city_corp_id" name="city_corp_id" onchange="hideErrorDiv('city_corp_id')">
+                                    <select disabled="disabled" class="form-control" id="city_corp_id" name="city_corp_id" onchange="loadWardByCityCrop(this.value);hideErrorDiv('city_corp_id')">
                                         <option value="">Select City corporation</option>
                                         @php
                                         $pcdivisions    =   get_table_data_by_table('citycorporations');
@@ -186,7 +199,21 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="constituency">Constituency</label>
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control" id="constituency" name="constituency" value="{{ old('constituency','') }}">
+                                    <select class="form-control" id="constituency" name="constituency" onchange="hideErrorDiv('gisobject_id')">
+                                        <option value="">Constituency</option>
+                                        @php
+                                        $constituency    =   get_table_data_by_table('constituency');
+                                        foreach($constituency as $data){
+                                        @endphp
+                                        <option value="{{$data->id}}" {{($data->id == old('constituency')) ? 'selected' : ''}}>
+                                            <?php 
+                                            echo $data->const_id.'('.$data->name.')';
+                                            ?>
+                                        </option>
+                                        @php
+                                        }
+                                        @endphp
+                                    </select>
                                 </div>    
                             </div>
                             <div class="form-group">
@@ -434,6 +461,34 @@
                         data        :"upz_id="+upz_id,
                         success     :function(response){
                             $('#union_id').html(response)
+                        }
+                    });
+            }
+        }
+    </script>
+    <script>
+        function loadCityCropByCat(cat_id){
+            if(cat_id){    
+                $.ajax({
+                        url         :'{{url("admin/dashbord/loadCityCropByCat")}}',
+                        type        :"get",
+                        dataType    :"JSON",
+                        data        :"cat_id="+cat_id,
+                        success     :function(response){
+                            $("#city_corp_id").html(response);
+                        }
+                    });
+            }
+        }
+        function loadWardByCityCrop(city_crop_id){
+            if(city_crop_id){    
+                $.ajax({
+                        url         :'{{url("admin/dashbord/loadWardByCityCrop")}}',
+                        type        :"get",
+                        dataType    :"JSON",
+                        data        :"citycorp_id="+city_crop_id,
+                        success     :function(response){
+                            $("#ward_id").html(response);
                         }
                     });
             }

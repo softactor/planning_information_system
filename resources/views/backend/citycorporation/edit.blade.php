@@ -36,7 +36,7 @@
                                     @if ($errors->has('div_id'))
                                     <div class="alert-error">{{ $errors->first('div_id') }}</div>
                                     @endif
-                                    <select class="form-control" id="div_id" name="div_id">
+                                    <select class="form-control" id="div_id" name="div_id" onchange="loadDistrict(this.value);">
                                         <option value="">Select</option>
                                         @php
                                             $pcdivisions    =   get_table_data_by_table('admdivisions');
@@ -46,6 +46,33 @@
                                         @php
                                         }
                                         @endphp
+                                    </select>
+                                </div>    
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label col-sm-3" for="div">District (English)<span class="required_star">*</span></label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="district_id" name="district_id">
+                                        <option value="">Select</option>
+                                        @php
+                                            $checkParam['table'] = "districts";
+                                            $districts  =   get_table_data_by_table('districts');
+                                            foreach($districts as $data){
+                                        @endphp
+                                        <option value="{{$data->id}}" <?php if(isset($edit_data->dis_id) && $edit_data->dis_id==$data->id){ ?>selected<?php } ?>>{{$data->district_name}}</option>
+                                        @php
+                                        }
+                                        @endphp
+                                    </select>
+                                </div>    
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="div">Category<span class="required_star">*</span></label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="cat_id" name="cat_id">
+                                        <option value="">Select</option>
+                                        <option value="1"<?php if(isset($edit_data->cat_id) && $edit_data->cat_id==1){ ?>selected<?php } ?>>City corporation</option>
+                                        <option value="2"<?php if(isset($edit_data->cat_id) && $edit_data->cat_id==2){ ?>selected<?php } ?>>Municipality</option>
                                     </select>
                                 </div>    
                             </div>
@@ -106,4 +133,22 @@
     </section>
     <!-- /.content -->
 </div>
+@section('footer_js_scrip_area')
+    @parent
+    <script>
+    function loadDistrict(division_id){
+        if(division_id){    
+            $.ajax({
+                    url         :'{{url("admin/dashbord/loadDivisionByDistrict")}}',
+                    type        :"get",
+                    dataType    :"JSON",
+                    data        :"division_id="+division_id,
+                    success     :function(response){
+                        $("#district_id").html(response);
+                    }
+                });
+        }
+    }
+</script>
+@endsection
 @endsection

@@ -61,6 +61,8 @@ Route::group(['namespace'   =>  'Backend', 'prefix'   =>  'admin', 'middleware' 
     Route::get('dashbord/getDivisionByDistrict',     'Dashboard@getDivisionByDistrict');
     Route::get('dashbord/loadUnionByUpazila',     'Dashboard@loadUnionByUpazila');
     Route::get('dashbord/loadAgencyByMinstry',     'Dashboard@loadAgencyByMinstry');
+    Route::get('dashbord/loadCityCropByCat',     'Dashboard@loadCityCropByCat');
+    Route::get('dashbord/loadWardByCityCrop',     'Dashboard@loadWardByCityCrop');
     
     /*
      * =========================================================================

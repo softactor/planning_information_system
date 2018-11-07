@@ -47,7 +47,8 @@ class Ward extends Controller
         //Define Rules
         $rules = [
             'citycorp_id'   => 'required',
-            'ward_nr'     => 'required',
+            'cat_id'        => 'required',
+            'ward_nr'       => 'required',
             'ward_x'        => 'required',
             'ward_y'        => 'required',
         ];
@@ -67,6 +68,7 @@ class Ward extends Controller
         $checkParam['table'] = "wards";
         $checkWhereParam = [
                 ['citycorp_id', '=', $request->citycorp_id],
+                ['cat_id', '=', $request->cat_id],
                 ['ward_nr',   '=', $request->ward_nr],
                 ['ward_x',      '=', $request->ward_x],
                 ['ward_y',      '=', $request->commonconf_type],
@@ -88,6 +90,7 @@ class Ward extends Controller
         $response           =   WardModel::create([
             'id'            => $max_id->id+1,
             'citycorp_id'   =>  $request->citycorp_id,
+            'cat_id'        =>  $request->cat_id,
             'ward_nr'     =>  $request->ward_nr,
             'ward_x'        =>  $request->ward_x,
             'ward_y'        =>  $request->ward_y,
@@ -120,6 +123,7 @@ class Ward extends Controller
         //Define Rules
         $rules = [
             'citycorp_id'   => 'required',
+            'cat_id'   => 'required',
             'ward_nr'     => 'required',
             'ward_x'        => 'required',
             'ward_y'        => 'required',
@@ -140,6 +144,7 @@ class Ward extends Controller
         $checkParam['table'] = "wards";
         $checkWhereParam = [
                 ['citycorp_id', '=', $request->citycorp_id],
+                ['cat_id', '=', $request->cat_id],
                 ['ward_nr',   '=', $request->ward_nr],
                 ['ward_x',      '=', $request->ward_x],
                 ['ward_y',      '=', $request->commonconf_type],
@@ -161,6 +166,7 @@ class Ward extends Controller
         $commonconf = WardModel::find($request->edit_id);
         $commonconf->update([
             'citycorp_id'   =>  $request->citycorp_id,
+            'cat_id'     =>  $request->cat_id,
             'ward_nr'     =>  $request->ward_nr,
             'ward_x'        =>  $request->ward_x,
             'ward_y'        =>  $request->ward_y,
@@ -261,6 +267,9 @@ class Ward extends Controller
             $list_data = $query->get();
         } else {
 
+            if (isset($request->cat_id) && !empty($request->cat_id)) {
+                $query->where('cat_id', '=', $request->cat_id);
+            }
             if (isset($request->citycorp_id) && !empty($request->citycorp_id)) {
                 $query->where('citycorp_id', '=', $request->citycorp_id);
             }

@@ -47,6 +47,8 @@ class Citycorporation extends Controller
         $rules = [
             'div_id'        => 'required',
             'citycorp_name' => 'required',
+            'cat_id' => 'required',
+            'district_id' => 'required',
             'citycorp_x'    => 'required',
             'citycorp_y'    => 'required',
         ];
@@ -63,10 +65,12 @@ class Citycorporation extends Controller
          *check duplicate entry
          * ---------------------------------------------------------
          */
-        $checkParam['table'] = "commonconfs";
+        $checkParam['table'] = "citycorporations";
         $checkWhereParam = [
-                ['commonconf_name', '=', $request->commonconf_name],
-                ['commonconf_type', '=', $request->commonconf_type],
+                ['div_id', '=', $request->div_id],
+                ['dis_id', '=', $request->district_id],
+                ['cat_id', '=', $request->cat_id],
+                ['citycorp_name', '=', $request->citycorp_name],
         ];
         $checkParam['where']    = $checkWhereParam;
         $duplicateCheck         = check_duplicate_data($checkParam); //check_duplicate_data is a helper method:
@@ -86,6 +90,8 @@ class Citycorporation extends Controller
         $response   =   CitycorporationModel::create([
             'id'                => $max_id->id+1,
             'div_id'            => $request->div_id,
+            'dis_id'            => $request->district_id,
+            'cat_id'            => $request->cat_id,
             'citycorp_name'     => $request->citycorp_name,
             'citycorp_name_bn'  => $request->citycorp_name_bn,
             'citycorp_x'        => $request->citycorp_x,
@@ -122,6 +128,8 @@ class Citycorporation extends Controller
             'citycorp_name' => 'required',
             'citycorp_x'    => 'required',
             'citycorp_y'    => 'required',
+            'cat_id' => 'required',
+            'district_id' => 'required',
         ];
 
         // Create a new validator instance
@@ -139,6 +147,8 @@ class Citycorporation extends Controller
         $checkParam['table'] = "citycorporations";
         $checkWhereParam = [
                 ['div_id',          '=', $request->div_id],
+                ['dis_id',          '=', $request->district_id],
+                ['cat_id',          '=', $request->cat_id],
                 ['citycorp_name',   '=', $request->citycorp_name],
                 ['citycorp_x',      '=', $request->citycorp_x],
                 ['citycorp_y',      '=', $request->citycorp_y],
@@ -160,6 +170,8 @@ class Citycorporation extends Controller
         $commonconf = CitycorporationModel::find($request->edit_id);
         $commonconf->update([
             'div_id'            => $request->div_id,
+            'dis_id'            => $request->district_id,
+            'cat_id'            => $request->cat_id,
             'citycorp_name'     => $request->citycorp_name,
             'citycorp_name_bn'  => $request->citycorp_name_bn,
             'citycorp_x'        => $request->citycorp_x,
@@ -265,6 +277,12 @@ class Citycorporation extends Controller
             }
             if (isset($request->citycorp_name) && !empty($request->citycorp_name)) {
                 $query->where('citycorp_name', 'like', '%' . $request->citycorp_name . '%');
+            }
+            if (isset($request->dis_id) && !empty($request->dis_id)) {
+                $query->where('dis_id', '=', $request->dis_id);
+            }
+            if (isset($request->cat_id) && !empty($request->cat_id)) {
+                $query->where('cat_id', '=', $request->cat_id);
             }
             
             $list_data = $query->get();

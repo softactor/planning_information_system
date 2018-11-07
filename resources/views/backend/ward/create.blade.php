@@ -30,6 +30,16 @@
                         <form class="form-horizontal" action="{{url('admin/ward/store')}}" method="post">
                              <!--to protect csrf-->
                              {{csrf_field()}}
+                             <div class="form-group">
+                                <label class="control-label col-sm-3" for="div">Category<span class="required_star">*</span></label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="cat_id" name="cat_id" onchange="loadCityCropByCat(this.value);">
+                                        <option value="">Select</option>
+                                        <option value="1">City corporation</option>
+                                        <option value="2">Municipality</option>
+                                    </select>
+                                </div>    
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="div">City corporation (English)<span class="required_star">*</span></label>
                                 <div class="col-sm-8">
@@ -104,4 +114,22 @@
     </section>
     <!-- /.content -->
 </div>
+@section('footer_js_scrip_area')
+    @parent
+    <script>
+        function loadCityCropByCat(cat_id){
+            if(cat_id){    
+                $.ajax({
+                        url         :'{{url("admin/dashbord/loadCityCropByCat")}}',
+                        type        :"get",
+                        dataType    :"JSON",
+                        data        :"cat_id="+cat_id,
+                        success     :function(response){
+                            $("#citycorp_id").html(response);
+                        }
+                    });
+            }
+        }
+    </script>
+@endsection
 @endsection

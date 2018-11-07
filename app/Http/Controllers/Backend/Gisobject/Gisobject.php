@@ -165,7 +165,6 @@ class Gisobject extends Controller
         $list_url = $this->list_url;
         $edit_url = $this->edit_url;
         $active_menu    =   $this->active_menu;
-        $page = "List";
         // get all table data:
         $query  = GisobjectModel::orderBy('id', 'DESC');
 
@@ -179,6 +178,7 @@ class Gisobject extends Controller
 
             if (isset($request->gisobject_type) && !empty($request->gisobject_type)) {
                 $query->where('gisobject_type', '=', $request->gisobject_type);
+                $query->orWhere('gisobject_type', '=', strtolower($request->gisobject_type));
             }
             
             $list_data = $query->get();

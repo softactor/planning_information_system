@@ -18,7 +18,7 @@
                     $all_pages = get_table_data_by_clause($param);
                     foreach($all_pages as $data){
                     @endphp
-                    <option value="{{$data->id}}">{{$data->commonconf_name}}</option>
+                    <option value="{{$data->commonconf_name}}">{{$data->commonconf_name}}</option>
                     @php
                     }
                     @endphp

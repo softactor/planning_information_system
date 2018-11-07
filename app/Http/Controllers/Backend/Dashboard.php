@@ -521,4 +521,33 @@ class Dashboard extends Controller
             echo json_encode($view);
         }
     }
+    public function loadCityCropByCat(Request $request){
+        $return =   false;
+        $table_data = DB::table('citycorporations')
+                ->where('cat_id','=',$request->cat_id)
+                ->get();
+
+        if ($table_data->first()) {
+            $view = View::make('pertial.city_crop_by_cat', compact('table_data'));
+            echo json_encode($view->render());
+        }else{
+            $view   =   "<option value=''>select</option>";
+            echo json_encode($view);
+        }
+    }
+    public function loadWardByCityCrop(Request $request){
+        $return =   false;
+        $table_data = DB::table('wards')
+                ->where('citycorp_id','=',$request->citycorp_id)
+                ->orderBy('ward_nr', 'ASC')
+                ->get();
+
+        if ($table_data->first()) {
+            $view = View::make('pertial.wards_by_city_crop', compact('table_data'));
+            echo json_encode($view->render());
+        }else{
+            $view   =   "<option value=''>select</option>";
+            echo json_encode($view);
+        }
+    }
 }

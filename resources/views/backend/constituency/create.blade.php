@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-8">
                                     <input name="submit" type="submit" value="Save" class="btn btn-success">
-                                    <a href="{{ url('admin/commonconf')}}" class="btn btn-info">Cancel</a>
+                                    <a href="{{ url('admin/constituency')}}" class="btn btn-info">Cancel</a>
                                     <a href="{{ url($list_url)}}" class="btn btn-info">Menu</a>
                                 </div>
                             </div>

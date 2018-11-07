@@ -11,7 +11,7 @@
         @foreach ($list_data as $data)
         <tr id="data_entry_id_{{$data->id}}">
             <td>{{ $data->gisobject_name }}</td>
-            <td>{{ get_data_name_by_id('commonconfs',$data->gisobject_type)->commonconf_name }}</td>
+            <td>{{ $data->gisobject_type }}</td>
             <td>
                 <a href="{{ url($edit_url.'/'.$data->id) }}" class="btn btn-xs btn-info">Edit</a>
                 <button type="button" class="btn btn-xs btn-info" onclick="common_delete({{$data->id}}, 'gisobjects');">Delete</button>

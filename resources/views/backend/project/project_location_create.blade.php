@@ -36,7 +36,7 @@
                         $pdata              =   get_table_data_by_clause($param);
                         $project_data       =   $pdata[0];
                         ?>
-                        <form class="form-horizontal" action="{{ url('admin/project/project_location_store') }}" method="post">
+                        <form class="form-horizontal" action="{{ url('admin/project/project_location_store') }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             @include("backend.pertial.project_entry_form_fixed_part")
                             <div class="form-group">                                
@@ -131,7 +131,22 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="ctycor">
-                                    <input type="radio" name="location_type" id="location_type_city" value="2" onchange="disableOtherLocationInput(2);">City Corporation<span class="required_star">*</span>
+                                    <input type="radio" name="location_type" id="location_type_city" value="2" onchange="disableOtherLocationInput(2);">Category
+                                <span class="required_star">*</span></label>
+                                
+                                <div class="col-sm-3">
+                                    @if ($errors->has('cat_id'))
+                                        <div class="alert-error">{{ $errors->first('city_corp_id') }}</div>
+                                    @endif
+                                    <select class="form-control" id="cat_id" name="cat_id" onchange="loadCityCropByCat(this.value);">
+                                        <option value="">Select</option>
+                                        <option value="1">City corporation</option>
+                                        <option value="2">Municipality</option>
+                                    </select>
+                                </div>   
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="ctycor">
                                 </label>
                                 
                                 <div class="col-sm-3">
@@ -188,7 +203,21 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="road">constituency</label>
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control" id="constituency" name="constituency" value="{{ old('constituency',0) }}">
+                                    <select class="form-control" id="constituency" name="constituency" onchange="hideErrorDiv('gisobject_id')">
+                                        <option value="">Constituency</option>
+                                        @php
+                                        $constituency    =   get_table_data_by_table('constituency');
+                                        foreach($constituency as $data){
+                                        @endphp
+                                        <option value="{{$data->id}}" {{($data->id == old('constituency')) ? 'selected' : ''}}>
+                                            <?php 
+                                            echo $data->const_id.'('.$data->name.')';
+                                            ?>
+                                        </option>
+                                        @php
+                                        }
+                                        @endphp
+                                    </select>
                                 </div>    
                             </div>
                             <div class="form-group">
@@ -232,25 +261,6 @@
                                 </div>    
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="ecost">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" name="csv_location" value="csv_location"> CSV Location</label>
-                                    </div>
-                                </label> 
-                                <div class="col-sm-3">                                     
-                                    <label class="radio-inline">
-                                        <input type="radio" name="csv_type" value="upz">Upazila
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="csv_type" value="union">Union
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="csv_type" value="wards">Wards
-                                    </label>
-                                    <input type="file" class="form-control" id="project_docs" name="csvlocationfile">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-8">
                                     <input type="hidden" id="pla_update_id" name="pla_update_id" value="">
                                     <input type="hidden" name="project_id" value="<?php echo Session::get('project_id'); ?>">
@@ -290,7 +300,17 @@
                                     ?>
                                     <tr id="data_entry_id_{{$ag->id}}">
                                         <td>#</td>
-                                        <td>{{ (isset($ag->district_id)? getDivisionByDistrict($ag->district_id)->dvname    : getDivisionByCC($ag->city_corp_id)->dvname) }}</td>
+                                        <td>
+                                            <?php
+                                                if(isset($ag->district_id)){
+                                                    if(isset(getDivisionByDistrict($ag->district_id)->dvname)){
+                                                        echo getDivisionByDistrict($ag->district_id)->dvname;
+                                                    }elseif(isset(getDivisionByCC($ag->city_corp_id)->dvname)){
+                                                        echo getDivisionByCC($ag->city_corp_id)->dvname;
+                                                    }                                                    
+                                                }
+                                            ?>
+                                        </td>
                                         <td><?php echo (isset($ag->district_id)? get_data_name_by_id("districts", $ag->district_id)->district_name:"") ?></td>
                                         <td><?php echo (isset($ag->upz_id)? get_data_name_by_id("upazilas", $ag->upz_id)->upazila_name:"") ?></td>                                                    
                                         <td><?php echo (isset($ag->union_id)? get_data_name_by_id("bd_unions", $ag->union_id)->bd_union_name:"") ?></td>
@@ -459,6 +479,19 @@
                         data        :"upz_id="+upz_id,
                         success     :function(response){
                             $('#union_id').html(response)
+                        }
+                    });
+            }
+        }
+        function loadWardByCityCrop(city_crop_id){
+            if(city_crop_id){    
+                $.ajax({
+                        url         :'{{url("admin/dashbord/loadWardByCityCrop")}}',
+                        type        :"get",
+                        dataType    :"JSON",
+                        data        :"citycorp_id="+city_crop_id,
+                        success     :function(response){
+                            $("#ward_id").html(response);
                         }
                     });
             }

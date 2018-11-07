@@ -18,5 +18,5 @@ class WardModel extends Model
      *
      * @var array
      */
-    protected $fillable = ['id','citycorp_id','ward_nr','geo_code','ward_x','ward_y','constituency','is_deleted','user_id'];
+    protected $fillable = ['id','citycorp_id','cat_id','ward_nr','geo_code','ward_x','ward_y','constituency','is_deleted','user_id'];
 }

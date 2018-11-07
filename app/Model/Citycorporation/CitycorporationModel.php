@@ -18,5 +18,5 @@ class CitycorporationModel extends Model
      *
      * @var array
      */
-    protected $fillable = ['id','div_id','citycorp_name','citycorp_name_bn','geo_code','citycorp_x','citycorp_y','is_deleted','user_id'];
+    protected $fillable = ['id','div_id','dis_id','cat_id','citycorp_name','citycorp_name_bn','geo_code','citycorp_x','citycorp_y','is_deleted','user_id'];
 }
